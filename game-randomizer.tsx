@@ -4,11 +4,11 @@ import { Card, CardContent } from "@/components/ui/card"
 import Papa from 'papaparse';
 import { Dices } from 'lucide-react';
 
-// Add custom font CSS
+// Add custom font CSS with relative path
 const customFontStyles = `
   @font-face {
     font-family: 'RoboFan';
-    src: url('/fonts/robofan.otf') format('opentype');
+    src: url('./fonts/robofan.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
   }
@@ -26,7 +26,7 @@ const GameRandomizer = () => {
   useEffect(() => {
     const loadGames = async () => {
       try {
-        const response = await window.fs.readFile('MTP Game Database.csv', { encoding: 'utf8' });
+        const response = await window.fs.readFile('./MTP Game Database.csv', { encoding: 'utf8' });
         const result = Papa.parse(response, {
           header: true,
           skipEmptyLines: true
@@ -67,7 +67,7 @@ const GameRandomizer = () => {
             <div className="flex flex-col items-center space-y-4">
               <div className="w-32 h-32">
                 <img
-                  src="/assets/logo.png"
+                  src="./assets/logo.png"
                   alt="MTP Logo"
                   className="w-full h-full object-contain"
                 />
