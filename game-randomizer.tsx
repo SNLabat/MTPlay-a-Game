@@ -26,7 +26,7 @@ const GameRandomizer = () => {
   useEffect(() => {
     const loadGames = async () => {
       try {
-        const response = await window.fs.readFile('MTP Game Suggestion Database  Sheet1.csv', { encoding: 'utf8' });
+        const response = await window.fs.readFile('MTP Game Database.csv', { encoding: 'utf8' });
         const result = Papa.parse(response, {
           header: true,
           skipEmptyLines: true
@@ -67,7 +67,7 @@ const GameRandomizer = () => {
             <div className="flex flex-col items-center space-y-4">
               <div className="w-32 h-32">
                 <img
-                  src="/api/placeholder/128/128"
+                  src="/assets/logo.png"
                   alt="MTP Logo"
                   className="w-full h-full object-contain"
                 />
